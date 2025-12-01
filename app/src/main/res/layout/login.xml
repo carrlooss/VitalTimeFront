@@ -1,0 +1,206 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_login">
+
+    <!-- Onda decorativa superior -->
+    <ImageView
+        android:id="@+id/ivTopWave"
+        android:layout_width="412dp"
+        android:layout_height="135dp"
+        android:contentDescription="Wave Top"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Nombre de la app: VitalTime -->
+    <TextView
+        android:id="@+id/tvAppName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="VitalTime"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:shadowColor="#000000"
+        android:shadowDx="0"
+        android:shadowDy="2"
+        android:shadowRadius="4"
+        android:fontFamily="sans-serif-medium"
+        app:layout_constraintTop_toTopOf="@id/ivTopWave"
+        app:layout_constraintBottom_toBottomOf="@id/ivTopWave"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Tarjeta de login moderna -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardLogin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="48dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="@color/medical_surface"
+        app:layout_constraintTop_toBottomOf="@id/tvAppName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:id="@+id/linearLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <!-- Título -->
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="20dp"
+                android:text="Iniciar Sesión"
+                android:textColor="@color/medical_on_surface"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <!-- Campo Usuario -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:boxStrokeColor="@color/medical_outline"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:hintTextColor="@color/medical_outline"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/usuario"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:hint="Usuario"
+                    android:textColor="@color/medical_on_surface"
+                    android:textColorHint="@color/medical_outline" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Campo Contraseña -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:boxStrokeColor="@color/medical_outline"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/medical_outline"
+                app:hintTextColor="@color/medical_outline"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:hint="Contraseña"
+                    android:inputType="textPassword"
+                    android:textColor="@color/medical_on_surface"
+                    android:textColorHint="@color/medical_outline" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Spinner de Rol -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:boxStrokeColor="@color/medical_outline"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusBottomEnd="12dp"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+
+                <AutoCompleteTextView
+                    android:id="@+id/spinnerRol"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:hint="Selecciona tu rol"
+                    android:inputType="none"
+                    android:textColor="@color/medical_on_surface"
+                    android:textColorHint="@color/medical_outline" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Mensaje de error -->
+            <TextView
+                android:id="@+id/tvErrorMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Error: credenciales inválidas"
+                android:textColor="@color/medical_error"
+                android:textSize="13sp"
+                android:visibility="gone" />
+
+            <!-- Botón PRINCIPAL: Iniciar Sesión -->
+            <Button
+                android:id="@+id/iniciarsesion"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="@color/medical_primary"
+                android:text="Iniciar Sesión"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:cornerRadius="14dp"
+                android:elevation="4dp"
+                android:stateListAnimator="@null" />
+
+            <!-- Botón SECUNDARIO: Registrar -->
+            <Button
+                android:id="@+id/registrar"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="12dp"
+                android:text="Crear cuenta"
+                android:textColor="@color/medical_secondary"
+                android:textSize="15sp"
+                app:strokeColor="@color/medical_secondary"
+                app:cornerRadius="14dp"
+                app:strokeWidth="1.5dp" />
+
+            <!-- Botón MEJORADO: Limpiar campos -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/limpiar"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="44dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:text="Limpiar campos"
+                android:textSize="14sp"
+                android:textColor="@color/medical_on_surface"
+                app:strokeColor="@color/medical_outline"
+                app:cornerRadius="12dp"
+                app:strokeWidth="1dp"
+                app:icon="@drawable/ic_refresh"
+                app:iconGravity="textStart"
+                app:iconSize="16dp"
+                app:iconTint="@color/medical_outline" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

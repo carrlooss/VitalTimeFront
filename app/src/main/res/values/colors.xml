@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="green_500">#4CAF50</color>
+    <color name="red_500">#F44336</color>
+    <color name="purple_500">#673AB7</color>
+    <!-- Primary: Azul médico moderno -->
+    <color name="md_theme_primary">#4361ee</color>
+    <color name="md_theme_onPrimary">#FFFFFF</color>
+    <color name="md_theme_primaryContainer">#d8e2ff</color>
+    <color name="md_theme_onPrimaryContainer">#001b49</color>
+
+    <!-- Secondary: Verde suave para estados positivos -->
+    <color name="md_theme_secondary">#06d6a0</color>
+    <color name="md_theme_onSecondary">#003820</color>
+    <color name="md_theme_secondaryContainer">#8ff9d9</color>
+    <color name="md_theme_onSecondaryContainer">#002014</color>
+
+    <!-- Tertiary: Rosa suave para acentos -->
+    <color name="md_theme_tertiary">#ff6b6b</color>
+
+    <!-- Backgrounds -->
+    <color name="md_theme_background">#ffffff</color>
+    <color name="md_theme_surface">#ffffff</color>
+    <color name="md_theme_onSurface">#1c1b1f</color>
+    <color name="md_theme_surfaceVariant">#e0e0e0</color>
+
+    <!-- Error -->
+    <color name="md_theme_error">#ba1a1a</color>
+    <color name="md_theme_onError">#ffffff</color>
+
+    <!-- Gris suave para texto secundario -->
+    <color name="text_secondary">#757575</color>
+    <color name="divider">#e0e0e0</color>
+
+    <color name="medical_primary">#2563eb</color>        <!-- Azul fuerte (botón principal) -->
+    <color name="medical_primary_variant">#1d4ed8</color> <!-- Azul oscuro (presionado) -->
+    <color name="medical_secondary">#0d9488</color>       <!-- Verde turquesa (registro) -->
+    <color name="medical_surface">#f8fafc</color>         <!-- Fondo claro -->
+    <color name="medical_on_surface">#1e293b</color>      <!-- Texto oscuro -->
+    <color name="medical_outline">#cbd5e1</color>         <!-- Bordes suaves -->
+    <color name="medical_error">#ef4444</color>           <!-- Rojo para errores -->
+    <color name="primary_blue">#4FC3F7</color>
+    <color name="primary_green">#81C784</color>
+    <color name="primary_purple">#BA68C8</color>
+    <color name="overlay_white_50">#80FFFFFF</color>
+
+        <!-- Tonos principales -->
+        <color name="primary_500">#4FC3F7</color>
+        <color name="primary_600">#29B6F6</color>
+        <color name="primary_700">#0288D1</color>
+        <color name="primary_800">#0277BD</color>
+
+        <!-- Grises -->
+        <color name="gray_600">#757575</color>
+
+        <!-- Error -->
+        <color name="error_red">#D32F2F</color>
+
+    <color name="card_blue">#1976D2</color>
+    <color name="card_green">#388E3C</color>
+    <color name="card_purple">#8E24AA</color>
+    <color name="gray_700">#9E9E9E</color>
+    <color name="primary_200">#BBDEFB</color>
+    <color name="card_orange">#FFA447</color>
+    <color name="card_background">#FFFFFF</color>
+</resources>
+

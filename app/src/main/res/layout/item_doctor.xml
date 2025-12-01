@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="10dp"
+    app:strokeWidth="0dp"
+    app:cardBackgroundColor="@color/card_background"
+    android:foreground="?attr/selectableItemBackground">
+
+    <LinearLayout
+        android:padding="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- NOMBRE DEL DOCTOR -->
+        <TextView
+            android:id="@+id/txtNombreDoctor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dr. Nombre Apellido"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/primary_800"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <!-- ESPECIALIDAD -->
+        <TextView
+            android:id="@+id/txtEspecialidad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Especialidad: Cardiología"
+            android:textSize="14sp"
+            android:textColor="@color/gray_700"
+            android:layout_marginTop="2dp" />
+
+        <!-- TELEFONO -->
+        <TextView
+            android:id="@+id/txtTelefono"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Teléfono: 600000000"
+            android:textSize="14sp"
+            android:textColor="@color/gray_700"
+            android:layout_marginTop="2dp" />
+
+        <!-- EMAIL -->
+        <TextView
+            android:id="@+id/txtEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email: doctor@correo.com"
+            android:textSize="14sp"
+            android:textColor="@color/gray_700" />
+
+        <!-- LICENCIA -->
+        <TextView
+            android:id="@+id/txtLicense"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Licencia: 123456"
+            android:textSize="14sp"
+            android:textColor="@color/gray_700" />
+
+        <!-- DIRECCION -->
+        <TextView
+            android:id="@+id/txtDireccion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dirección: Calle Mayor 12"
+            android:textSize="14sp"
+            android:textColor="@color/gray_700" />
+
+        <!-- BOTONES -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:layout_marginTop="12dp">
+
+            <!-- VER CITAS -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnVerCitas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ver Citas"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                app:backgroundTint="@color/primary_800"
+                app:cornerRadius="16dp"
+                android:paddingHorizontal="12dp"
+                android:layout_marginStart="8dp"/>
+
+            <!-- EDITAR -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnEditar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Editar"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                app:backgroundTint="@color/card_orange"
+                app:cornerRadius="16dp"
+                android:paddingHorizontal="12dp"
+                android:layout_marginStart="8dp"/>
+
+            <!-- ELIMINAR -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnEliminar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Eliminar"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                app:backgroundTint="@color/error_red"
+                app:cornerRadius="16dp"
+                android:paddingHorizontal="12dp"
+                android:layout_marginStart="8dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

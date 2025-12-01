@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient_colorful">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- TÍTULO -->
+        <TextView
+            android:id="@+id/tvTituloDoctores"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Doctores"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"/>
+
+        <!-- BUSCADOR -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilBuscarDoctor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Buscar doctor">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etBuscarDoctor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- LISTA DE PACIENTES -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvDoctores"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="12dp"
+            android:clipToPadding="false"/>
+    </LinearLayout>
+
+    <!-- BOTÓN FLOTANTE -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabNuevoDoctor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_add"
+        android:tint="@android:color/white"
+        android:contentDescription="Añadir doctor"
+        app:backgroundTint="@color/card_orange"
+        app:layout_anchorGravity="bottom|end"
+        android:layout_margin="22dp"
+        app:layout_anchor="@id/rvDoctores"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

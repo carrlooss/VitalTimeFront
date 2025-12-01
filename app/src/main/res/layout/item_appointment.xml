@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="14dp"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardCornerRadius="22dp"
+    app:cardElevation="4dp"
+    app:strokeWidth="0dp"
+    app:cardUseCompatPadding="true"
+    app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.None">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="18dp"
+        android:gravity="center_vertical">
+
+        <!-- Ícono circular de fecha -->
+        <LinearLayout
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:background="@drawable/bg_circle_gradient"
+            android:elevation="2dp"
+            android:padding="6dp">
+
+            <TextView
+                android:id="@+id/tvDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/tvMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MAY"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+
+        <!-- Contenido derecho -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="16dp"
+            android:orientation="vertical">
+
+            <!-- Especialidad -->
+            <TextView
+                android:id="@+id/tvSpecialty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cardiología"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="@color/primary_800" />
+
+            <!-- Médico -->
+            <TextView
+                android:id="@+id/tvDoctor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Dra. Laura Méndez"
+                android:textSize="14sp"
+                android:textColor="@color/gray_700" />
+
+            <!-- Fecha y hora -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="6dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="17dp"
+                    android:layout_height="17dp"
+                    android:src="@drawable/ic_access_time"
+                    android:contentDescription="Hora"
+                    app:tint="@color/gray_600" />
+
+                <TextView
+                    android:id="@+id/tvTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:text="10:30 AM"
+                    android:textSize="14sp"
+                    android:textColor="@color/gray_600" />
+
+            </LinearLayout>
+
+            <!-- Fila de botones (Ver ubicación + Cancelar) -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp"
+                android:gravity="start">
+
+                <!-- Botón Ver ubicación -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnShowLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ver ubicación"
+                    android:textSize="12sp"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"
+                    android:backgroundTint="@color/primary_500"
+                    android:textColor="@android:color/white"
+                    app:cornerRadius="12dp" />
+
+                <!-- Botón Cancelar -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCancel"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cancelar"
+                    android:textSize="12sp"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="4dp"
+                    android:layout_marginStart="10dp"
+                    app:cornerRadius="12dp"
+                    app:iconPadding="0dp"
+                    app:rippleColor="@color/primary_200" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Icono de estado -->
+        <ImageView
+            android:id="@+id/ivStatus"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/ic_check_circle"
+            android:contentDescription="Cita confirmada"
+            android:visibility="gone"
+            app:tint="@color/primary_600" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

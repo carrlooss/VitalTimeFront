@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "13955502389",
+    "project_id": "loginmedicos-d0f3d",
+    "storage_bucket": "loginmedicos-d0f3d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:13955502389:android:c41ead8a398ee36b5abc7c",
+        "android_client_info": {
+          "package_name": "com.company.LoginMedicos"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCV32HB5QRhTx80bwz-UktFy0Lv0JuT_7s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:13955502389:android:64880329634cee0f5abc7c",
+        "android_client_info": {
+          "package_name": "com.example.appmedicoscarlos"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCV32HB5QRhTx80bwz-UktFy0Lv0JuT_7s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:13955502389:android:c79eac803b068ec95abc7c",
+        "android_client_info": {
+          "package_name": "com.example.pruebaapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCV32HB5QRhTx80bwz-UktFy0Lv0JuT_7s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
