@@ -24,8 +24,11 @@ class AuthViewModel(private val repository: AuthRepository, private val tokenMan
             result.onSuccess { authResponse ->
                 tokenManager.saveToken(authResponse.token)
                 tokenManager.saveUsername(username)
-                tokenManager.saveUserId(authResponse.userId) // ← Guardamos patientId
-                tokenManager.saveRol(authResponse.roles.joinToString(", "))
+                tokenManager.saveUserId(authResponse.userId)
+                if (authResponse.roles.joinToString(", ") == "MEDICO")
+                    tokenManager.saveRol("ADMIN")
+                else
+                    tokenManager.saveRol(authResponse.roles.joinToString(", "))
                 _loginState.value = LoginState.Success(authResponse)
             }.onFailure { error ->
                 _loginState.value = LoginState.Error(error.message ?: "Error desconocido")
@@ -40,7 +43,7 @@ class AuthViewModel(private val repository: AuthRepository, private val tokenMan
             result.onSuccess { authResponse ->
                 tokenManager.saveToken(authResponse.token)
                 tokenManager.saveUsername(username)
-                tokenManager.saveUserId(authResponse.userId) // ← También en registro
+                tokenManager.saveUserId(authResponse.userId)
                 tokenManager.saveRol(authResponse.roles.joinToString(", "))
                 _registerState.value = RegisterState.Success(authResponse)
             }.onFailure { error ->

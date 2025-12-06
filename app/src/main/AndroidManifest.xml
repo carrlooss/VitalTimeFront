@@ -44,6 +44,9 @@
             android:name=".ui.CreateDoctorActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.HorarioDoctorActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.NuevaCitaActivity"
             android:exported="false" />
         <activity android:name=".ui.AdminActivity"
@@ -52,13 +55,11 @@
             android:exported="false"/>
         <activity android:name=".ui.CreatePatientActivity"
             android:exported="false"/>
-        <!-- Pantalla de perfil -->
         <activity
             android:name=".ui.ProfileActivity"
             android:exported="true">
         </activity>
 
-        <!-- Pantalla de edición -->
         <activity
             android:name=".ui.EditProfileActivity"
             android:exported="false" />

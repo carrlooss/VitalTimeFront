@@ -15,6 +15,7 @@ import com.example.appmedicoscarlos.models.DoctorResponse
 import com.example.appmedicoscarlos.providers.VitalTimeClient
 import com.example.appmedicoscarlos.repository.DoctorRepository
 import com.example.appmedicoscarlos.utils.TokenManager
+import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.Dispatchers
@@ -51,6 +52,13 @@ class ListaDoctoresActivity : AppCompatActivity() {
                 intent.putExtra("USER_ROLE", "DOCTOR")
                 intent.putExtra("USER_ID", doctor.id)
                 editDoctorLauncher.launch(intent)
+            },
+
+            onAgendaClick = { doctor ->
+                val intent = Intent(this, HorarioDoctorActivity::class.java)
+                intent.putExtra("USER_ID", doctor.id)
+                intent.putExtra("NOMBRE_DOCTOR", "Dr. " + doctor.firstName + " " + doctor.lastName)
+                startActivity(intent)
             }
         )
 
@@ -63,7 +71,7 @@ class ListaDoctoresActivity : AppCompatActivity() {
             filtrarDoctores(text.toString())
         }
 
-        // Botón flotante → Crear Doctor
+        // Botón flotante crear Doctor
         findViewById<FloatingActionButton>(R.id.fabNuevoDoctor).setOnClickListener {
             val intent = Intent(this, CreateDoctorActivity::class.java)
             createDoctorLauncher.launch(intent)
@@ -71,6 +79,11 @@ class ListaDoctoresActivity : AppCompatActivity() {
 
         // Cargar doctores al iniciar
         cargarDoctores()
+
+        val toolbar = findViewById<MaterialToolbar>(R.id.topAppBar)
+        toolbar.setNavigationOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
     }
 
     // Cargar lista de doctores
@@ -94,7 +107,6 @@ class ListaDoctoresActivity : AppCompatActivity() {
         }
     }
 
-
     // Eliminar doctor
     private fun eliminarDoctor(doctor: DoctorResponse) {
         lifecycleScope.launch {
@@ -109,7 +121,7 @@ class ListaDoctoresActivity : AppCompatActivity() {
                 }
 
                 result.onFailure {
-                    Toast.makeText(this@ListaDoctoresActivity, "Error al eliminar el doctor: ${it.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@ListaDoctoresActivity, "${it.message}", Toast.LENGTH_SHORT).show()
                 }
 
             } catch (e: Exception) {
@@ -148,7 +160,7 @@ class ListaDoctoresActivity : AppCompatActivity() {
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
         if (result.resultCode == RESULT_OK) {
-            cargarDoctores() // recargar toda la lista
+            cargarDoctores()
         }
     }
 }

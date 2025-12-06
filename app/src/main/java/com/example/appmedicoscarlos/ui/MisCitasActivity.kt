@@ -15,6 +15,7 @@ import com.example.appmedicoscarlos.models.AppointmentResponseDto
 import com.example.appmedicoscarlos.providers.VitalTimeClient
 import com.example.appmedicoscarlos.repository.AppointmentRepository
 import com.example.appmedicoscarlos.utils.TokenManager
+import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -29,11 +30,11 @@ class MisCitasActivity : AppCompatActivity() {
     private var userId: Long = -1
     private var userRole: String = ""
 
-    // ⬇⬇⬇ AQUÍ va el launcher ⬇⬇⬇
+
     private val launcherNuevaCita =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == RESULT_OK) {
-                loadAppointments() // refrescar citas
+                loadAppointments()
             }
         }
 
@@ -71,11 +72,15 @@ class MisCitasActivity : AppCompatActivity() {
                 val result = repository.deleteAppointment(appointmentId)
                 result.onSuccess {
                     Toast.makeText(this@MisCitasActivity, "Cita eliminada", Toast.LENGTH_SHORT).show()
-                    loadAppointments() // refresca la lista
+                    loadAppointments()
                 }.onFailure { error ->
                     Toast.makeText(this@MisCitasActivity, "Error: ${error.message}", Toast.LENGTH_LONG).show()
                 }
             }
+        }
+
+        findViewById<MaterialToolbar>(R.id.topAppBar).setNavigationOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
         }
     }
 

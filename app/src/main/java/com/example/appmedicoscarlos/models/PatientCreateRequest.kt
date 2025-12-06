@@ -10,7 +10,7 @@ data class PatientCreateRequest(
     @SerializedName("firstName") val firstName: String,
     @SerializedName("lastName") val lastName: String,
     @SerializedName("phone") val phone: String,
-    @SerializedName("dateOfBirth") val dateOfBirth: String, // Formato: "yyyy-MM-dd"
-    @SerializedName("gender") val gender: String, // Ej: "MALE", "FEMALE", "OTHER"
+    @SerializedName("dateOfBirth") val dateOfBirth: String,
+    @SerializedName("gender") val gender: String,
     @SerializedName("contact") val contact: String
 )

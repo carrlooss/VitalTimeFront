@@ -15,6 +15,7 @@ import com.example.appmedicoscarlos.models.PatientResponseDto
 import com.example.appmedicoscarlos.providers.VitalTimeClient
 import com.example.appmedicoscarlos.repository.PatientRepository
 import com.example.appmedicoscarlos.utils.TokenManager
+import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.Dispatchers
@@ -31,11 +32,11 @@ class ListaPacientesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lista_paciente)
 
-        // --- Instanciamos Repository ---
+        // Instanciamos Repository
         val token = TokenManager(this).getToken()!!
         repository = PatientRepository(VitalTimeClient(token).apiService)
 
-        // --- RecyclerView ---
+        //  RecyclerView
         val rvPacientes = findViewById<RecyclerView>(R.id.rvPacientes)
         adapter = PacienteAdapter(
             pacientesList,
@@ -57,20 +58,24 @@ class ListaPacientesActivity : AppCompatActivity() {
         rvPacientes.layoutManager = LinearLayoutManager(this)
         rvPacientes.adapter = adapter
 
-        // --- Buscador ---
+        //Buscador
         val etBuscar = findViewById<TextInputEditText>(R.id.etBuscarPaciente)
         etBuscar.doOnTextChanged { text, _, _, _ ->
             filtrarPacientes(text.toString())
         }
 
-        // --- FloatingActionButton para crear paciente ---
+        // FloatingActionButton para crear paciente
         findViewById<FloatingActionButton>(R.id.fabNuevoPaciente).setOnClickListener {
             val intent = Intent(this, CreatePatientActivity::class.java)
             createPatientLauncher.launch(intent)
         }
 
-        // --- Cargar pacientes ---
+        // Cargar pacientes
         cargarPacientes()
+
+        findViewById<MaterialToolbar>(R.id.topAppBar).setNavigationOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
     }
 
     private fun cargarPacientes() {
@@ -120,7 +125,7 @@ class ListaPacientesActivity : AppCompatActivity() {
         adapter.filter(query)
     }
 
-    // --- RESULTADO AL VOLVER DE EDITAR ---
+    // Resultado al volver a editar
     private val editPatientLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
@@ -140,12 +145,12 @@ class ListaPacientesActivity : AppCompatActivity() {
         }
     }
 
-    // --- RESULTADO AL VOLVER DE CREAR ---
+    // Resultado al volver de crear
     private val createPatientLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
         if (result.resultCode == RESULT_OK) {
-            cargarPacientes()    // Recargar la lista entera
+            cargarPacientes()
         }
     }
 }

@@ -16,8 +16,8 @@ import com.google.android.material.button.MaterialButton
 
 class AppointmentAdapter : ListAdapter<AppointmentResponseDto, AppointmentAdapter.ViewHolder>(AppointmentDiffCallback()) {
 
-    var onCancelClick: ((Long) -> Unit)? = null // Callback que la Activity configurará
-    var onLocationClick: ((Double, Double, String?, String?) -> Unit)? = null // NUEVO
+    var onCancelClick: ((Long) -> Unit)? = null
+    var onLocationClick: ((Double, Double, String?, String?) -> Unit)? = null
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val tvDay: TextView = view.findViewById(R.id.tvDay)
@@ -26,7 +26,7 @@ class AppointmentAdapter : ListAdapter<AppointmentResponseDto, AppointmentAdapte
         val tvDoctor: TextView = view.findViewById(R.id.tvDoctor)
         val tvTime: TextView = view.findViewById(R.id.tvTime)
         val btnCancel: Button = view.findViewById(R.id.btnCancel)
-        val btnLocation: MaterialButton = view.findViewById(R.id.btnShowLocation) // NUEVO
+        val btnLocation: MaterialButton = view.findViewById(R.id.btnShowLocation)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -43,7 +43,7 @@ class AppointmentAdapter : ListAdapter<AppointmentResponseDto, AppointmentAdapte
         holder.tvDay.text = displayInfo.day
         holder.tvMonth.text = displayInfo.month
 
-        // Valores temporales (puedes mejorarlos más tarde)
+        // Valores temporales
         holder.tvSpecialty.text = "Medicina General"
         holder.tvDoctor.text = "Dr. [Médico]"
         holder.tvTime.text = displayInfo.time

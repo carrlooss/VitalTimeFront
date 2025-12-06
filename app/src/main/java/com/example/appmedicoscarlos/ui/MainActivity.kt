@@ -25,21 +25,21 @@ class MainActivity : AppCompatActivity() {
         val factory = AuthViewModelFactory(repository, tokenManager)
         authViewModel = ViewModelProvider(this, factory)[AuthViewModel::class.java]
 
-        // 🔥 PRIMERO: comprobar si está logeado
+        //comprobar si está logeado
         if (!authViewModel.isLoggedIn()) {
             navigateToLogin()
             return
         }
 
-        // 🔥 NUEVO: Si el rol es admin → abrir layout Admin
+        // Si el rol es admin → abrir layout Admin
         val rol = tokenManager.getRol()
         if (rol.equals("ADMIN", ignoreCase = true)) {
             startActivity(Intent(this, AdminActivity::class.java))
             finish()
-            return   // IMPORTANTE
+            return
         }
 
-        // Si NO es admin → carga tu layout normal de pacientes
+        // Si no es admin, carga el layout normal de pacientes
         setContentView(R.layout.main_activity_users)
 
         // Mostrar nombre del usuario
@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
             navigateToLogin()
         }
 
-        // 👇 AÑADIDO: Navegación a "Mis Citas"
+        // Navegación a Mis Citas
         findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardMyAppointments)
             .setOnClickListener {
                 val intent = Intent(this, MisCitasActivity::class.java)

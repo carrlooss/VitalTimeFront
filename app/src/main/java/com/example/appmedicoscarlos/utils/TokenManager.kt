@@ -5,7 +5,7 @@ import android.content.Context
 class TokenManager(private val context: Context) {
     private val prefs = context.getSharedPreferences("auth_prefs", Context.MODE_PRIVATE)
 
-    // === TOKEN ===
+    // TOKEN
     fun saveToken(token: String) {
         prefs.edit().putString("jwt_token", token).apply()
     }
@@ -14,7 +14,7 @@ class TokenManager(private val context: Context) {
         return prefs.getString("jwt_token", null)
     }
 
-    // === USERNAME ===
+    // USERNAME
     fun saveUsername(username: String) {
         prefs.edit().putString("username", username).apply()
     }
@@ -23,7 +23,7 @@ class TokenManager(private val context: Context) {
         return prefs.getString("username", null)
     }
 
-    // === ROL ===
+    // ROL
     fun saveRol(rol: String) {
         prefs.edit().putString("rol", rol).apply()
     }
@@ -32,7 +32,7 @@ class TokenManager(private val context: Context) {
         return prefs.getString("rol", null)
     }
 
-    // === USER ID (nuevo) ===
+    //  USER ID
     fun saveUserId(userId: Long) {
         prefs.edit().putLong("user_id", userId).apply()
     }
@@ -42,12 +42,12 @@ class TokenManager(private val context: Context) {
         return if (id == -1L) null else id
     }
 
-    // === LIMPIEZA COMPLETA ===
+    // LIMPIEZA COMPLETA
     fun clearAll() {
         prefs.edit().clear().apply()
     }
 
-    // === UTILIDADES ===
+    // UTILIDADES
     fun isLoggedIn(): Boolean {
         return getToken() != null
     }

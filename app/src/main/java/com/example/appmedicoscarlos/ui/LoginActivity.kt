@@ -56,11 +56,14 @@ class LoginActivity : AppCompatActivity() {
 
         // Configurar botón login
         btnLogin.setOnClickListener {
+
             val username = etUsername.text.toString().trim()
             val password = etPassword.text.toString().trim()
 
-            if (username.isEmpty() || password.isEmpty()) {
-                tvError.text = "Por favor completa todos los campos"
+            val validation = validateLoginFields(username, password)
+
+            if (validation != null) {
+                tvError.text = validation
                 tvError.visibility = View.VISIBLE
                 return@setOnClickListener
             }
@@ -96,4 +99,45 @@ class LoginActivity : AppCompatActivity() {
     private fun navigateToMain() {
         startActivity(Intent(this, MainActivity::class.java))
     }
+
+    //VALIDACIONES
+
+    private fun validateLoginFields(username: String, password: String): String? {
+
+        // 1. Validar campos vacíos
+        if (username.isEmpty() || password.isEmpty()) {
+            return "Por favor completa todos los campos"
+        }
+
+        // 2. Longitud mínima del usuario
+        if (username.length < 4) {
+            return "El usuario debe tener al menos 4 caracteres"
+        }
+
+        // 3. Usuario sin espacios
+        if (username.contains(" ")) {
+            return "El usuario no debe contener espacios"
+        }
+
+        // 4. Caracteres permitidos en usuario (solo letras, números y guión bajo)
+        val userRegex = "^[a-zA-Z0-9_]+$".toRegex()
+        if (!username.matches(userRegex)) {
+            return "El usuario solo puede contener letras, números y guiones bajos"
+        }
+
+        // 5. Longitud mínima de contraseña
+        if (password.length < 3) {
+            return "La contraseña debe tener al menos 6 caracteres"
+        }
+
+        // 6. Contraseña sin espacios
+        if (password.contains(" ")) {
+            return "La contraseña no puede contener espacios"
+        }
+
+
+        // Todo válido
+        return null
+    }
+
 }

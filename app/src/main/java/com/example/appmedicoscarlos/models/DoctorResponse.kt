@@ -15,7 +15,8 @@
 
         // Campos propios del doctor
         val licenseNumber: String? = null,
-        val specialtyId: Long?,         // obligatorio → no nullable
+        val specialtyId: Long?,
+        val specialtyName: String?,
         val officeAddress: String? = null,
         val bio: String? = null,
         val latitude: Double? = null,

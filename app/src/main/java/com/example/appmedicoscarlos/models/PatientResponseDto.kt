@@ -11,7 +11,7 @@ data class PatientResponseDto(
     @SerializedName("firstName") val firstName: String? = null,
     @SerializedName("lastName") val lastName: String? = null,
     @SerializedName("phone") val phone: String? = null,
-    @SerializedName("dateOfBirth") val dateOfBirth: String? = null, // "yyyy-MM-dd"
+    @SerializedName("dateOfBirth") val dateOfBirth: String? = null,
     @SerializedName("gender") val gender: String? = null,
     @SerializedName("contact") val contact: String? = null
 ): Serializable

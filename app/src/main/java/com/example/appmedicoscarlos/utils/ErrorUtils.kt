@@ -1,5 +1,6 @@
 package com.example.appmedicoscarlos.utils
 
+import com.example.appmedicoscarlos.models.ErrorResponse
 import com.google.gson.Gson
 
 object ErrorUtils {
@@ -26,18 +27,9 @@ object ErrorUtils {
         return try {
             val gson = Gson()
 
-            // Intenta mapear directamente un Map simple
-            val simpleMap: Map<String, Any> =
-                gson.fromJson(errorJson, Map::class.java) as Map<String, Any>
-
-            // Si contiene un campo "errors", lo procesamos
-            if (simpleMap.containsKey("errors")) {
-                val errors = simpleMap["errors"] as Map<*, *>
-                return errors.values.joinToString("; ") { it.toString() }
-            }
-
-            // Si el JSON es un map plano tipo { "password": "mensaje" }
-            simpleMap.values.joinToString("; ") { it.toString() }
+            val errorResponse: ErrorResponse = Gson().fromJson(errorJson, ErrorResponse::class.java)
+            val message: String = errorResponse.message?: "No se ha podido recuperar el error"
+            return message
 
         } catch (e: Exception) {
             "Error desconocido"

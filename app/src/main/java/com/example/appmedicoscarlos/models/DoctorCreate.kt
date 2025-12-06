@@ -11,7 +11,7 @@ data class DoctorCreate(
 
     // Campos propios del doctor
     val licenseNumber: String? = null,
-    val specialtyId: Int,         // obligatorio → no nullable
+    val specialtyId: Int,
     val officeAddress: String? = null,
     val bio: String? = null,
     val latitude: Double? = null,

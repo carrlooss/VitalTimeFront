@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:paddingHorizontal="24dp"
     android:paddingTop="24dp"
     android:paddingBottom="16dp"
     android:background="@drawable/bg_gradient_colorful">
 
-    <!-- Título principal -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="0dp"
@@ -19,11 +28,11 @@
         android:textStyle="bold"
         android:fontFamily="sans-serif-medium"
         android:textColor="@color/primary_800"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topAppBar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp"/>
 
-    <!-- Subtítulo -->
     <TextView
         android:id="@+id/tvSubtitle"
         android:layout_width="0dp"
@@ -37,7 +46,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="6dp" />
 
-    <!-- RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewAppointments"
         android:layout_width="0dp"
@@ -53,7 +61,6 @@
         tools:listitem="@layout/item_appointment"
         tools:itemCount="2" />
 
-    <!-- Estado vacío -->
     <LinearLayout
         android:id="@+id/layoutEmpty"
         android:layout_width="0dp"
@@ -94,7 +101,6 @@
 
     </LinearLayout>
 
-    <!-- FloatingActionButton mejorado -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabNewAppointment"
         android:layout_width="wrap_content"

@@ -5,10 +5,13 @@ import com.example.appmedicoscarlos.models.AppointmentResponseDto
 import com.example.appmedicoscarlos.models.AvailabilityResponse
 import com.example.appmedicoscarlos.models.DoctorCreate
 import com.example.appmedicoscarlos.models.DoctorResponse
+import com.example.appmedicoscarlos.models.DoctorScheduleCreateDto
+import com.example.appmedicoscarlos.models.DoctorScheduleResponseDto
 import com.example.appmedicoscarlos.models.DoctorUpdateRequest
 import com.example.appmedicoscarlos.models.PatientCreateRequest
 import com.example.appmedicoscarlos.models.PatientResponseDto
 import com.example.appmedicoscarlos.models.PatientUpdateRequest
+import com.example.appmedicoscarlos.models.SpecialtyResponseDto
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.DELETE
@@ -74,13 +77,28 @@ interface VitalTimeService {
     @GET("availability/doctor/{doctorId}")
     suspend fun getAvailability(@Path("doctorId") doctorId: Long, @Query("from") from: String, @Query("to") to: String): AvailabilityResponse
 
+    // === DOCTOR SCHEDULE ===
+
+    @POST("doctor-schedules")
+    suspend fun createSchedule(@Body dto: List<DoctorScheduleCreateDto>): List<DoctorScheduleResponseDto>
+
+    @GET("doctor-schedules/Doctor/{id}")
+    suspend fun getSchedulesByDoctor(@Path("id") doctorId: Long): List<DoctorScheduleResponseDto>
+
+    @DELETE("doctor-schedules/deleteAll/{doctorId}")
+    suspend fun deleteScheduleByDoctorId(@Path("doctorId") doctorId: Long): Response<Void>
+
+    // === SPECIALTY ===
+    @GET("specialties/getAll")
+    suspend fun getAllSpecialties(): List<SpecialtyResponseDto>
+
     companion object {
-        private const val BASE_URL = "http://10.0.2.2:8080/" // Reemplaza por tu URL
+        private const val BASE_URL = "http://10.0.2.2:8080/"
 
         fun getService(): VitalTimeService {
             return RetrofitInstance.getRetrofit(BASE_URL).create(VitalTimeService::class.java)
         }
-        
+
     }
 }
 

@@ -2,7 +2,6 @@
 <androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
@@ -15,7 +14,6 @@
         android:paddingTop="24dp"
         android:paddingBottom="32dp">
 
-        <!-- Saludo personalizado -->
         <TextView
             android:id="@+id/tvWelcome"
             android:layout_width="0dp"
@@ -42,7 +40,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="6dp" />
 
-        <!-- Tarjetas interactivas con colores y sombras -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardMyAppointments"
             android:layout_width="0dp"
@@ -51,7 +48,7 @@
             app:cardCornerRadius="24dp"
             app:cardElevation="8dp"
             app:strokeWidth="0dp"
-            app:cardBackgroundColor="@color/card_blue"
+            app:cardBackgroundColor="@color/card_blue_suave"
             app:layout_constraintTop_toBottomOf="@id/tvSubtitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
@@ -97,7 +94,7 @@
             app:cardCornerRadius="24dp"
             app:cardElevation="8dp"
             app:strokeWidth="0dp"
-            app:cardBackgroundColor="@color/card_green"
+            app:cardBackgroundColor="@color/card_green_suave"
             app:layout_constraintTop_toBottomOf="@id/cardMyAppointments"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
@@ -143,7 +140,7 @@
             app:cardCornerRadius="24dp"
             app:cardElevation="8dp"
             app:strokeWidth="0dp"
-            app:cardBackgroundColor="@color/card_purple"
+            app:cardBackgroundColor="@color/card_purple_suave"
             app:layout_constraintTop_toBottomOf="@id/cardNewAppointment"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
@@ -181,7 +178,6 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Botón de cierre de sesión -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnLogout"
             style="@style/Widget.Material3.Button.TextButton.Dialog.Flush"

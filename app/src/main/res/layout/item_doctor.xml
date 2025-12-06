@@ -17,7 +17,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- NOMBRE DEL DOCTOR -->
         <TextView
             android:id="@+id/txtNombreDoctor"
             android:layout_width="wrap_content"
@@ -29,7 +28,6 @@
             android:maxLines="1"
             android:ellipsize="end" />
 
-        <!-- ESPECIALIDAD -->
         <TextView
             android:id="@+id/txtEspecialidad"
             android:layout_width="wrap_content"
@@ -39,7 +37,6 @@
             android:textColor="@color/gray_700"
             android:layout_marginTop="2dp" />
 
-        <!-- TELEFONO -->
         <TextView
             android:id="@+id/txtTelefono"
             android:layout_width="wrap_content"
@@ -49,7 +46,6 @@
             android:textColor="@color/gray_700"
             android:layout_marginTop="2dp" />
 
-        <!-- EMAIL -->
         <TextView
             android:id="@+id/txtEmail"
             android:layout_width="wrap_content"
@@ -58,7 +54,6 @@
             android:textSize="14sp"
             android:textColor="@color/gray_700" />
 
-        <!-- LICENCIA -->
         <TextView
             android:id="@+id/txtLicense"
             android:layout_width="wrap_content"
@@ -67,7 +62,6 @@
             android:textSize="14sp"
             android:textColor="@color/gray_700" />
 
-        <!-- DIRECCION -->
         <TextView
             android:id="@+id/txtDireccion"
             android:layout_width="wrap_content"
@@ -76,7 +70,6 @@
             android:textSize="14sp"
             android:textColor="@color/gray_700" />
 
-        <!-- BOTONES -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -84,7 +77,6 @@
             android:gravity="end"
             android:layout_marginTop="12dp">
 
-            <!-- VER CITAS -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnVerCitas"
                 android:layout_width="wrap_content"
@@ -97,7 +89,6 @@
                 android:paddingHorizontal="12dp"
                 android:layout_marginStart="8dp"/>
 
-            <!-- EDITAR -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnEditar"
                 android:layout_width="wrap_content"
@@ -110,7 +101,6 @@
                 android:paddingHorizontal="12dp"
                 android:layout_marginStart="8dp"/>
 
-            <!-- ELIMINAR -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnEliminar"
                 android:layout_width="wrap_content"
@@ -123,6 +113,17 @@
                 android:paddingHorizontal="12dp"
                 android:layout_marginStart="8dp"/>
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAgenda"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Agenda"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                app:backgroundTint="@color/primary_500"
+                app:cornerRadius="16dp"
+                android:paddingHorizontal="12dp"
+                android:layout_marginStart="8dp"/>
         </LinearLayout>
 
     </LinearLayout>

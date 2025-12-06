@@ -18,7 +18,7 @@ class VitalTimeClient(private val token: String) {
 
     private val client = OkHttpClient.Builder()
         .addInterceptor(loggingInterceptor)
-        .addInterceptor(authInterceptor) // ✅ Añadido aquí
+        .addInterceptor(authInterceptor)
         .connectTimeout(30, TimeUnit.SECONDS)
         .readTimeout(30, TimeUnit.SECONDS)
         .build()

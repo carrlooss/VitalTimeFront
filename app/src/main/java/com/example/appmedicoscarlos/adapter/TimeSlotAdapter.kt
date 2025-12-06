@@ -30,7 +30,6 @@ class TimeSlotAdapter(
         val slot = items[position]
         holder.tv.text = slot
 
-        // selected state
         holder.card.isSelected = (position == selectedPos)
         holder.itemView.setOnClickListener {
             val prev = selectedPos

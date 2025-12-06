@@ -33,13 +33,11 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        // Inicializar ViewModel (igual que en login)
         val tokenManager = TokenManager(this)
         val repository = AuthRepository(PublicVitalTimeClient.apiService)
         val factory = AuthViewModelFactory(repository, tokenManager)
         viewModel = ViewModelProvider(this, factory)[AuthViewModel::class.java]
 
-        // Si ya está logueado, ir a main (opcional, pero coherente)
         if (viewModel.isLoggedIn()) {
             navigateToMain()
             return
@@ -54,7 +52,6 @@ class RegisterActivity : AppCompatActivity() {
         btnRegister = findViewById(R.id.btnRegister)
         progressBarRegister = findViewById(R.id.progressBarRegister)
 
-        // Configurar botón de registro
         btnRegister.setOnClickListener {
             val firstName = etFirstName.text.toString().trim()
             val lastName = etLastName.text.toString().trim()
@@ -62,8 +59,10 @@ class RegisterActivity : AppCompatActivity() {
             val email = etEmail.text.toString().trim()
             val password = etRegPassword.text.toString().trim()
 
-            if (firstName.isEmpty() || lastName.isEmpty() || username.isEmpty() || email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Por favor completa todos los campos", Toast.LENGTH_SHORT).show()
+            val error = validateRegisterFields(firstName, lastName, username, email, password)
+
+            if (error != null) {
+                Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -93,6 +92,43 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun navigateToMain() {
         startActivity(Intent(this, MainActivity::class.java))
-        finish() // Opcional: evita volver al registro con el botón atrás
+        finish()
     }
+
+    //VALIDACIONES
+
+    private fun validateRegisterFields(
+        firstName: String,
+        lastName: String,
+        username: String,
+        email: String,
+        password: String
+    ): String? {
+
+        // Campos vacíos
+        if (firstName.isEmpty()) return "El nombre es obligatorio"
+        if (lastName.isEmpty()) return "El apellido es obligatorio"
+        if (username.isEmpty()) return "El nombre de usuario es obligatorio"
+        if (email.isEmpty()) return "El correo es obligatorio"
+        if (password.isEmpty()) return "La contraseña es obligatoria"
+
+        // Nombre y apellido solo letras
+        val nameRegex = "^[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$".toRegex()
+        if (!firstName.matches(nameRegex)) return "El nombre solo debe contener letras"
+        if (!lastName.matches(nameRegex)) return "El apellido solo debe contener letras"
+
+        // Username mínimo 4 caracteres
+        if (username.length < 4) return "El usuario debe tener al menos 4 caracteres"
+
+        // Validación email
+        val emailRegex = android.util.Patterns.EMAIL_ADDRESS
+        if (!emailRegex.matcher(email).matches()) return "Correo inválido"
+
+        // Contraseña mínimo 6 caracteres
+        if (password.length < 6) return "La contraseña debe tener mínimo 6 caracteres"
+
+
+        return null // validación correcta
+    }
+
 }

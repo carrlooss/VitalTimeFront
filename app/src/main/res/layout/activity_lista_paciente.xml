@@ -6,13 +6,20 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_gradient_colorful">
 
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:navigationIcon="@drawable/ic_arrow_back" />
+
     <LinearLayout
         android:orientation="vertical"
         android:padding="16dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="56dp">
 
-        <!-- TÍTULO -->
         <TextView
             android:id="@+id/tvTituloPacientes"
             android:layout_width="match_parent"
@@ -22,7 +29,6 @@
             android:textStyle="bold"
             android:textColor="@android:color/white"/>
 
-        <!-- BUSCADOR -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilBuscarPaciente"
             android:layout_width="match_parent"
@@ -37,7 +43,6 @@
                 android:inputType="text"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- LISTA DE PACIENTES -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvPacientes"
             android:layout_width="match_parent"
@@ -47,7 +52,6 @@
             android:clipToPadding="false"/>
     </LinearLayout>
 
-    <!-- BOTÓN FLOTANTE -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabNuevoPaciente"
         android:layout_width="wrap_content"

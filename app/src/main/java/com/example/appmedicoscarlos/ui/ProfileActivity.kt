@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import com.example.appmedicoscarlos.R
 import com.example.appmedicoscarlos.databinding.ActivityProfileBinding
 import com.example.appmedicoscarlos.models.DoctorResponse
 import com.example.appmedicoscarlos.models.PatientResponseDto
@@ -13,6 +14,7 @@ import com.example.appmedicoscarlos.providers.VitalTimeClient
 import com.example.appmedicoscarlos.repository.DoctorRepository
 import com.example.appmedicoscarlos.repository.PatientRepository
 import com.example.appmedicoscarlos.utils.TokenManager
+import com.google.android.material.appbar.MaterialToolbar
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -50,14 +52,16 @@ class ProfileActivity : AppCompatActivity() {
             intent.putExtra("USER_ID", userId)
             editProfileLauncher.launch(intent)
         }
+
+        findViewById<MaterialToolbar>(R.id.topAppBar).setNavigationOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
     }
 
-    // Arriba de la clase, junto a las otras propiedades
     private val editProfileLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
         if (result.resultCode == RESULT_OK) {
-            // El perfil fue actualizado → recargamos los datos
             val role = tokenManager.getRol() ?: ""
             val userId = tokenManager.getUserId() ?: 0
             if (role.contains("PACIENTE")) {

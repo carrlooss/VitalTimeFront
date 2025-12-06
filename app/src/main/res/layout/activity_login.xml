@@ -8,7 +8,22 @@
     android:orientation="vertical"
     android:padding="24dp">
 
-    <!-- Tarjeta de login con sombra más suave y borde redondeado -->
+    <TextView
+        android:id="@+id/tvAppName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="VitalTime"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-medium"
+        android:letterSpacing="0.08"
+        android:textColor="@android:color/white"
+        android:shadowColor="#80000000"
+        android:shadowDx="0"
+        android:shadowDy="4"
+        android:shadowRadius="8"
+        android:layout_marginBottom="32dp" />
+
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,7 +40,6 @@
             android:orientation="vertical"
             android:padding="28dp">
 
-            <!-- Título con degradado de texto -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -46,12 +60,10 @@
                 android:textColor="@color/gray_600"
                 android:textSize="15sp" />
 
-            <!-- Espacio -->
             <Space
                 android:layout_width="wrap_content"
                 android:layout_height="24dp" />
 
-            <!-- Usuario -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -70,7 +82,6 @@
                     android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Contraseña -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -90,7 +101,6 @@
                     android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Botón Login más llamativo -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnLogin"
                 android:layout_width="match_parent"
@@ -104,7 +114,6 @@
                 android:textColor="@android:color/white"
                 style="@style/Widget.Material3.Button.ElevatedButton" />
 
-            <!-- Enlace para registrarse con efecto hover -->
             <TextView
                 android:id="@+id/tvRegister"
                 android:layout_width="wrap_content"
@@ -119,7 +128,6 @@
                 android:background="?attr/selectableItemBackground"
                 android:padding="8dp" />
 
-            <!-- ProgressBar -->
             <ProgressBar
                 android:id="@+id/progressBar"
                 android:layout_width="wrap_content"
@@ -129,7 +137,6 @@
                 android:visibility="gone"
                 android:indeterminateTint="@color/primary_600" />
 
-            <!-- Error -->
             <TextView
                 android:id="@+id/tvError"
                 android:layout_width="match_parent"

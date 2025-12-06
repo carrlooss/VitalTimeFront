@@ -1,4 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -8,7 +10,13 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Campos comunes -->
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            app:navigationIcon="@drawable/ic_arrow_back" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -49,7 +57,6 @@
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Campos solo para paciente -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/layoutDateOfBirth"
             android:layout_width="match_parent"
@@ -86,7 +93,6 @@
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Campos solo para doctor -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/layoutLicense"
             android:layout_width="match_parent"
@@ -103,13 +109,17 @@
             android:id="@+id/layoutSpecialty"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Especialidad (ID)"
-            android:visibility="gone">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etSpecialtyId"
-                android:inputType="number"
+            android:hint="Especialidad"
+            android:visibility="gone"
+            app:endIconMode="dropdown_menu">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/dropdownSpecialty"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                android:focusable="false"
+                android:cursorVisible="false" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout

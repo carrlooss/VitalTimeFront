@@ -17,7 +17,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- NOMBRE COMPLETO -->
         <TextView
             android:id="@+id/tvNombrePaciente"
             android:layout_width="wrap_content"
@@ -27,7 +26,6 @@
             android:textStyle="bold"
             android:textColor="@color/primary_800" />
 
-        <!-- EMAIL -->
         <TextView
             android:id="@+id/tvEmailPaciente"
             android:layout_width="wrap_content"
@@ -37,7 +35,6 @@
             android:textColor="@color/gray_700"
             android:layout_marginTop="2dp"/>
 
-        <!-- TELEFONO -->
         <TextView
             android:id="@+id/tvTelefonoPaciente"
             android:layout_width="wrap_content"
@@ -57,7 +54,6 @@
             android:textColor="@color/gray_700"
             android:layout_marginTop="2dp"/>
 
-        <!-- GÉNERO -->
         <TextView
             android:id="@+id/tvGeneroPaciente"
             android:layout_width="wrap_content"
@@ -67,7 +63,6 @@
             android:textColor="@color/gray_700"
             android:layout_marginTop="2dp"/>
 
-        <!-- CONTACTO DE EMERGENCIA -->
         <TextView
             android:id="@+id/tvContactoEmergenciaPaciente"
             android:layout_width="wrap_content"
@@ -78,7 +73,6 @@
             android:textColor="@color/error_red"
             android:layout_marginTop="4dp"/>
 
-        <!-- BOTONES EN FILA -->
         <LinearLayout
             android:id="@+id/layoutBotonesPaciente"
             android:layout_width="match_parent"
@@ -87,7 +81,6 @@
             android:gravity="end"
             android:layout_marginTop="12dp">
 
-            <!-- ELIMINAR -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnEliminarPaciente"
                 android:layout_width="wrap_content"
@@ -99,7 +92,6 @@
                 app:cornerRadius="16dp"
                 android:paddingHorizontal="12dp" />
 
-            <!-- EDITAR -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnEditarPaciente"
                 android:layout_width="wrap_content"
@@ -112,7 +104,6 @@
                 android:paddingHorizontal="12dp"
                 android:layout_marginStart="8dp" />
 
-            <!-- VER CITAS -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnVerCitasPaciente"
                 android:layout_width="wrap_content"

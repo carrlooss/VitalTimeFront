@@ -16,9 +16,7 @@ class PacienteAdapter(
     private val onViewAppointmentsClick: (PatientResponseDto) -> Unit
 ) : RecyclerView.Adapter<PacienteAdapter.PacienteViewHolder>() {
 
-    // Lista completa original
     private var originalList = pacientesList.toMutableList()
-    // Lista visible (puede estar filtrada)
     private var workingList = pacientesList.toMutableList()
 
     inner class PacienteViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -55,14 +53,14 @@ class PacienteAdapter(
 
     override fun getItemCount(): Int = workingList.size
 
-    // Actualizar lista completa (por ejemplo, al cargar de servidor)
+    // Actualiza la lista completa
     fun updateList(newList: List<PatientResponseDto>) {
         originalList = newList.toMutableList()
         workingList = newList.toMutableList()
         notifyDataSetChanged()
     }
 
-    // Eliminar paciente
+    // Elimina paciente
     fun removePaciente(paciente: PatientResponseDto) {
         val indexOriginal = originalList.indexOfFirst { it.id == paciente.id }
         if (indexOriginal != -1) originalList.removeAt(indexOriginal)
@@ -74,7 +72,7 @@ class PacienteAdapter(
         }
     }
 
-    // Filtrar pacientes
+    // Filtra pacientes
     fun filter(query: String) {
         workingList = if (query.isBlank()) {
             originalList.toMutableList()
@@ -88,7 +86,7 @@ class PacienteAdapter(
         notifyDataSetChanged()
     }
 
-    // Actualizar paciente editado sin recargar todo
+    // Actualiza paciente
     fun updatePaciente(updatedPaciente: PatientResponseDto) {
         // Actualizar lista original
         val indexOriginal = originalList.indexOfFirst { it.id == updatedPaciente.id }
@@ -96,7 +94,7 @@ class PacienteAdapter(
             originalList[indexOriginal] = updatedPaciente
         }
 
-        // Actualizar lista visible
+        // Actualiza lista visible
         val indexWorking = workingList.indexOfFirst { it.id == updatedPaciente.id }
         if (indexWorking != -1) {
             workingList[indexWorking] = updatedPaciente

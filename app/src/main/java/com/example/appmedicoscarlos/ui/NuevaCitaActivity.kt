@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.example.appmedicoscarlos.R
 import com.example.appmedicoscarlos.databinding.ActivityNewAppointmentBinding
 import com.example.appmedicoscarlos.models.*
 import com.example.appmedicoscarlos.providers.VitalTimeClient
@@ -18,6 +19,7 @@ import com.example.appmedicoscarlos.repository.AppointmentRepository
 import com.example.appmedicoscarlos.repository.DoctorRepository
 import com.example.appmedicoscarlos.repository.PatientRepository
 import com.example.appmedicoscarlos.utils.TokenManager
+import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.chip.Chip
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.launch
@@ -65,6 +67,10 @@ class NuevaCitaActivity : AppCompatActivity() {
         }
         else {
             loadPatients()
+        }
+
+        findViewById<MaterialToolbar>(R.id.topAppBar).setNavigationOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
         }
     }
 

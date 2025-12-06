@@ -1,6 +1,11 @@
 package com.example.appmedicoscarlos.models
 
-data class ApiError(
-    val message: String,
-    val status: Int
+import com.google.gson.annotations.SerializedName
+import java.time.LocalDateTime
+
+data class ErrorResponse(
+    @SerializedName("timestamp") val timestamp: String?,
+    @SerializedName("status") val status: Int,
+    @SerializedName("error") val error: String?,
+    @SerializedName("message") val message: String?
 )
